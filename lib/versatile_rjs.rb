@@ -1,1 +1,4 @@
-# VersatileRjs
+
+module VersatileRJS
+
+end
