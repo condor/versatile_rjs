@@ -7,7 +7,8 @@ module VersatileRJS
       private :id
 
       methods_to_implement :_replace_html, :_replace,
-        :_insert_html, :remove, :value=, :value, :inner_html
+        :_insert_html, :remove, :value=, :value, :inner_html,
+        :select
 
       def initialize(page, id, statement)
         super(page, statement)

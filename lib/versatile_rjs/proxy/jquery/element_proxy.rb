@@ -34,6 +34,14 @@ module VersatileRJS
         def inner_html
           call :html
         end
+
+        def remove
+          call :remove
+        end
+
+        def select(selector)
+          call :find, selector
+        end
       end
     end
   end

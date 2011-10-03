@@ -51,7 +51,8 @@ module VersatileRJS
     end
 
     def execute_rendering(*args_for_rendering)
-      return args_for_rendering.first if args_for_rendering.size == 0 &&
+      return nil if args_for_rendering.size == 0
+      return args_for_rendering.first if args_for_rendering.size == 1 &&
         args_for_rendering.first.kind_of?(String)
       return render_on_view(*args_for_rendering)
     end
