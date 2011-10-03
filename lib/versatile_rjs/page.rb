@@ -1,10 +1,11 @@
 module VersatileRJS
   class Page
-    attr_reader :proxies
+    attr_reader :proxies, :view
     private :proxies
 
-    def initialize
+    def initialize(view)
       @proxies = []
+      @view = view
     end
 
     def add_proxy(proxy)
@@ -22,11 +23,11 @@ module VersatileRJS
     end
 
     def [](id)
-      VersatileRJS::Proxy::ElementProxy.new_instance(self, id)
+      VersatileRJS::Proxy::ElementProxy.new(self, id)
     end
 
     def select(selector)
-      VersatileRJS::Proxy::ElementSetProxy.new_instance(self, selector)
+      VersatileRJS::Proxy::ElementSetProxy.new(self, selector)
     end
 
     def assign(variable, value)
@@ -47,6 +48,17 @@ module VersatileRJS
 
     def remove(id, *args)
       self[id].remove(*args)
+    end
+
+    def execute_rendering(*args_for_rendering)
+      return args_for_rendering.first if args_for_rendering.size == 0 &&
+        args_for_rendering.first.kind_of?(String)
+      return render_on_view(*args_for_rendering)
+    end
+
+    private
+    def render_on_view(*args_for_rendering)
+      view.instance_eval{capture{render *args_for_rendering}}
     end
   end
 end

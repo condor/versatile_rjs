@@ -8,6 +8,10 @@ module VersatileRJS
           def self.new_insance(*args)
             implementation_class.new(*args)
           end
+
+          class <<self
+            alias_method :new, :new_instance
+          end
         end
 
         class_name_tree = base.name.split('::')
