@@ -1,10 +1,10 @@
 = versatile_rjs
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/condor/versatile_rjs
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Made RJS synopsis available in Rails 3.1.x or later
 
 == FEATURES/PROBLEMS:
 
@@ -16,17 +16,15 @@ FIX (describe your package)
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* Rails (>=3.1.0)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install versatile_rjs
 
 == LICENSE:
 
-(The MIT License)
-
-Copyright (c) 2011 FIXME full name
+Copyright (c) 2011 Kevin IMAI TOYODA
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
