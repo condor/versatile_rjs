@@ -1,6 +1,6 @@
-require 'versatile_rjs/page'
-require 'versatile_rjs/proxy'
+$:.unshift(File.dirname(__FILE__)) unless
+  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-module VersatileRJS
-  attr_accessor :framework
+module VersatileRjs
+  VERSION = '0.0.1'
 end
