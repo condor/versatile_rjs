@@ -19,7 +19,7 @@ module VersatileRJS
         class_dirnames = class_name_tree[0...-1]
         class_basename = class_name_tree[-1]
 
-        implementation_class_name = [class_dirnames, VersatileRJS.framework.to_s.downcase.split('_').map{|s|s.gsub(/^[a-z]/, &:upcase)}, class_basename].flatten.join('::')
+        implementation_class_name = [class_dirnames, VersatileRJS.javascript_framework.to_s.downcase.split('_').map{|s|s.gsub(/^[a-z]/, &:upcase)}, class_basename].flatten.join('::')
         base.implementation_class = implementation_class_name.constantize
       end
     end

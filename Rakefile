@@ -11,7 +11,7 @@ Hoe.plugin :newgem
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec 'versatile_rjs' do
-  self.developer 'Kevin IMAI TOYODA', 'tailto@mac.com'
+  self.developer 'Kevin IMAI TOYODA', 'nobody@example.com'
   self.rubyforge_name       = self.name # TODO this is default value
   self.extra_deps         = [['activesupport','>= 3.1.0'], ['actionpack','>= 3.1.0']]
 
