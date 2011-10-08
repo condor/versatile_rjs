@@ -7,6 +7,7 @@ module VersatileRJS
         end
       end
 
+
       def select(locator)
         _select(locator)
         ElementSetProxy.new(page, statement)

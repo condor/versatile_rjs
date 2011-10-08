@@ -13,7 +13,6 @@ module VersatileRJS
       proxies[index] = new
     end
 
-    private
     def proxies
       @proxies ||= []
     end

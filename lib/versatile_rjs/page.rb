@@ -70,6 +70,10 @@ module VersatileRJS
       return render_on_view(*args_for_rendering)
     end
 
+    def to_script
+      statement = proxies.map(&:to_json).join(';') + ';'
+    end
+
     private
     def render_on_view(*args_for_rendering)
       view.instance_eval{render *args_for_rendering}
