@@ -32,7 +32,7 @@ module VersatileRJS
     end
 
     def <<(expression)
-      VersatileRJS::Proxy::ExpressionProxy.new(self, expression)
+      VersatileRJS::Proxy.new(self, expression)
     end
 
     def [](id)
@@ -40,7 +40,7 @@ module VersatileRJS
     end
 
     def select(selector)
-      VersatileRJS::Proxy::ElementSetProxy.new(self, selector)
+      VersatileRJS::Proxy::SelectorProxy.new(self, selector)
     end
 
     def assign(variable, value)
