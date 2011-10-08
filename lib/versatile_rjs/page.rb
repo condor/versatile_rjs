@@ -44,7 +44,7 @@ module VersatileRJS
     end
 
     def assign(variable, value)
-      self << "var #{variable} = #{value.to_json}")
+      self << "var #{variable} = #{value.to_json}"
     end
 
     def replace_html(id, *args)
