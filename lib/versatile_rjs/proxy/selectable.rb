@@ -10,7 +10,7 @@ module VersatileRJS
 
       def select(locator)
         _select(locator)
-        ElementSetProxy.new(page, statement)
+        replace_with ElementSetProxy.new(page, statement)
       end
     end
   end

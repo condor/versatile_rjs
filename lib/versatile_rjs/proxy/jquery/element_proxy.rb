@@ -23,15 +23,19 @@ module VersatileRJS
           end
         end
 
-        def value=(value)
+        def _remove
+          call :remove
+        end
+
+        def _value=(value)
           call :val, value
         end
 
-        def value
+        def _value
           call :val
         end
 
-        def inner_html
+        def _inner_html
           call :html
         end
 

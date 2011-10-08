@@ -13,3 +13,7 @@ module VersatileRjs
   end
   self.javascript_framework = :jquery
 end
+
+ActiveSupport.on_load(:action_view) do
+  ActionView::Base.register_template_handler :rjs, VersatileRJS::TemplateHandler
+end

@@ -9,7 +9,7 @@ module VersatileRJS
 
       methods_to_implement :_replace_html => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to replace the innerHTML of the element that specified by me",
         :_replace => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to replace the whole of the element that specified by me",
-        :_insert_htm => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to insert the child element",
+        :_insert_html => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to insert the child element",
         :_remove => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to remove the element that specified by me",
         :_value= => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to set the value of the element specified by me",
         :_value => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to set the value of the element that specified by me",
@@ -30,6 +30,11 @@ module VersatileRJS
         as_expression
       end
 
+      def insert_html(position, *args)
+        _insert_html(position, page.execute_rendering(*args))
+        as_expression
+      end
+
       def remove
         _remove
         as_expression
@@ -42,11 +47,6 @@ module VersatileRJS
 
       def value=(value)
         self._value = value
-        as_expression
-      end
-
-      def insert_html(position, *args)
-        _insert_html(position, page.execute_rendering(*args))
         as_expression
       end
 
