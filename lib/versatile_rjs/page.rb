@@ -15,10 +15,20 @@ module VersatileRJS
     def initialize(view)
       @view = view
       @stack = ProxyStack.new
+      @stack.push self
     end
 
-    def push_proxy(proxy)
-      stack.push proxy
+    def push_container(container)
+      add_proxy container
+      stack.push container
+    end
+
+    def pop_container
+      stack.pop
+    end
+
+    def append_proxy(proxy)
+      stack.peek.add_proxy proxy
     end
 
     def <<(expression)
@@ -54,7 +64,7 @@ module VersatileRJS
     end
 
     def execute_rendering(*args_for_rendering)
-      return nil if args_for_rendering.size == 0
+      return '' if args_for_rendering.size == 0
       return args_for_rendering.first if args_for_rendering.size == 1 &&
         args_for_rendering.first.kind_of?(String)
       return render_on_view(*args_for_rendering)

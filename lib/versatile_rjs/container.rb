@@ -1,14 +1,16 @@
 module VersatileRJS
   module Container
 
+    def next_index
+      proxies.size
+    end
+
     def add_proxy(proxy)
-      proxy.index = proxies.size
       proxies << proxy
     end
 
-    def replace_proxy(prev, new)
-      new.index = prev.index
-      proxies[prev.index] = new
+    def replace_on(index, new)
+      proxies[index] = new
     end
 
     private
