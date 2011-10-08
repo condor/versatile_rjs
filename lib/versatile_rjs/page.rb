@@ -1,21 +1,24 @@
 module VersatileRJS
   class Page
-    attr_reader :proxies, :view
-    private :proxies
+
+    include Container
+
+    class ProxyStack < Array
+      def peek
+        self[-1]
+      end
+    end
+
+    attr_reader :view, :stack
+    private :stack
 
     def initialize(view)
-      @proxies = []
       @view = view
+      @stack = ProxyStack.new
     end
 
-    def add_proxy(proxy)
-      proxies << proxy
-      proxies.size - 1
-    end
-
-    def set_proxy_at(proxy, index)
-      proxy[index] = proxy
-      index
+    def push_proxy(proxy)
+      stack.push proxy
     end
 
     def <<(expression)
@@ -59,7 +62,7 @@ module VersatileRJS
 
     private
     def render_on_view(*args_for_rendering)
-      view.instance_eval{capture{render *args_for_rendering}}
+      view.instance_eval{render *args_for_rendering}
     end
   end
 end
