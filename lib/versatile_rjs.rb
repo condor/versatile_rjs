@@ -3,4 +3,6 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module VersatileRjs
   VERSION = '0.0.1'
+
+  attr_accessor :javascript_framework
 end
