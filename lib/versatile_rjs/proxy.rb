@@ -2,10 +2,8 @@
 module VersatileRJS
   class Proxy
     attr_reader :page, :statement, :container
-    private :page, :statement, :container
-
     attr_accessor :index, :container
-    protected :index=
+    private :page, :statement, :container, :index
 
     autoload :ElementProxy, 'versatile_rjs/proxy/element_proxy'
     autoload :ElementSetProxy, 'versatile_rjs/proxy/element_set_proxy'
@@ -17,7 +15,6 @@ module VersatileRJS
     def initialize(page, statement)
       @page = page
       @statement = statement
-      append_to(page)
     end
 
     def self.methods_to_implement(method_names = {})
@@ -41,13 +38,7 @@ module VersatileRJS
     end
 
     private
-    def append_to(container)
-      self.index = container.next_index
-      container.add_proxy(self)
-    end
-
     def replace_with(another)
-      another.index = index
       container.replace_on(index, another)
       another
     end

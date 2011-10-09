@@ -29,18 +29,19 @@ module VersatileRJS
 
     def append_proxy(proxy)
       stack.peek.add_proxy proxy
+      proxy
     end
 
     def <<(expression)
-      VersatileRJS::Proxy.new(self, expression)
+      append_proxy VersatileRJS::Proxy.new(self, expression)
     end
 
     def [](id)
-      VersatileRJS::Proxy::ElementProxy.new_instance(self, id)
+      append_proxy VersatileRJS::Proxy::ElementProxy.new_instance(self, id)
     end
 
     def select(selector)
-      VersatileRJS::Proxy::SelectorProxy.new_instance(self, selector)
+      append_proxy VersatileRJS::Proxy::SelectorProxy.new_instance(self, selector)
     end
 
     def assign(variable, value)

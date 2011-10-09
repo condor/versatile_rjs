@@ -2,8 +2,9 @@ module VersatileRJS
   class Proxy
     class Jquery
       class ElementProxy < VersatileRJS::Proxy::ElementProxy
-        def initialize(page, id)
-          super(page, id, "$('##{id}')")
+        private
+        def statement_by_id(id)
+          "$('##{id}')"
         end
 
         def _replace_html(content)

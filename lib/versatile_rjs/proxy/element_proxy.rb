@@ -18,6 +18,15 @@ module VersatileRJS
         :_value => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to set the value of the element that specified by me",
         :_inner_html => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to get the content of the element that specified by me"
 
+      def self.inherited(derived)
+        derived.class_eval do
+          def initialize(page, id)
+            super(page, id, statement_by_id(id))
+          end
+        end
+        derived.instance_eval{def inherited(*args);end}
+      end
+
       def initialize(page, id, statement)
         super(page, statement)
         @id = id
