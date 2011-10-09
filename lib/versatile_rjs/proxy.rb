@@ -35,7 +35,7 @@ module VersatileRJS
     end
 
     def as_expression
-      replace_with self.class.new(page, statement)
+      replace_with ::VersatileRJS::Proxy.new(page, statement)
     end
 
     private
