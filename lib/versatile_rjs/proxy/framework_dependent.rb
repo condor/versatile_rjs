@@ -24,7 +24,7 @@ module VersatileRJS
           implementation_class_name = [class_dirnames, framework_module, class_basename].flatten.join('::')
 
           require implementation_class_name.underscore
-          base.implementation_class = implementation_class_name.constantize
+          implementation_class_name.constantize
         end
       end
     end
