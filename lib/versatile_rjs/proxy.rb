@@ -33,6 +33,8 @@ module VersatileRJS
       ActiveSupport::JSON::Variable.new(statement)
     end
 
+    alias_method :to_s, :to_json
+
     def as_expression
       replace_with ::VersatileRJS::Proxy.new(page, statement)
     end

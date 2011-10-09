@@ -4,8 +4,8 @@ module VersatileRJS
   module Container
 
     def add_proxy(proxy)
-      proxies << proxy
       proxy.index = next_index
+      proxies << proxy
       relate_proxy(proxy)
     end
 
@@ -18,6 +18,8 @@ module VersatileRJS
     def proxies
       @proxies ||= []
     end
+
+    delegate :size, :count, :to => :proxies
 
     private
     def next_index
