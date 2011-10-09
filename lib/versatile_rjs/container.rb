@@ -1,3 +1,5 @@
+require 'weakref'
+
 module VersatileRJS
   module Container
 
