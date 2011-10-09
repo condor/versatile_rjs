@@ -10,5 +10,11 @@ module VersatileRJS
         end
       end
     end
+
+    initialier "versatile_rjs.register_template_handler" do |app|
+      ActiveSupport.on_load(:action_view) do
+        ActionView::Template.register_template_handler :rjs, VersatileRJS::TemplateHandler
+      end
+    end
   end
 end

@@ -14,7 +14,6 @@ $hoe = Hoe.spec 'versatile_rjs' do
   self.developer 'Kevin IMAI TOYODA', 'nobody@example.com'
   self.rubyforge_name       = self.name # TODO this is default value
   self.extra_deps         = [['activesupport','>= 3.1.0'], ['actionpack','>= 3.1.0']]
-
 end
 
 require 'newgem/tasks'

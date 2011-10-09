@@ -1,3 +1,5 @@
+require 'versatile_rjs/container'
+
 module VersatileRJS
   class Page
 

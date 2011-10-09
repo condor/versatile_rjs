@@ -19,7 +19,13 @@ module VersatileRJS
       @proxies ||= []
     end
 
-    delegate :size, :count, :to => :proxies
+    def size
+      proxies.size
+    end
+
+    def count
+      proxies.count
+    end
 
     private
     def next_index
