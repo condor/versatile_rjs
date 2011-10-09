@@ -21,7 +21,7 @@ module VersatileRJS
 
     private
     def relate_proxy(proxy)
-      proxy.container = self
+      proxy.container = WeakRef.new(self)
     end
   end
 end
