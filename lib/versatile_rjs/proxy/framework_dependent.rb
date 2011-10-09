@@ -6,11 +6,9 @@ module VersatileRJS
       end
 
       module ClassMethods
-        def new_insance(*args)
+        def new_instance(*args)
           implementation_class.new(*args)
         end
-
-        alias_method :new, :new_instance
 
         private
         def implementation_class
