@@ -5,7 +5,7 @@ require 'versatile_rjs/page'
 require 'versatile_rjs/proxy'
 require 'versatile_rjs/template_handler'
 
-module VersatileRjs
+module VersatileRJS
   VERSION = '0.0.1'
 
   class <<self
