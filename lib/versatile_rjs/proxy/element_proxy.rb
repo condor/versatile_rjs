@@ -1,7 +1,10 @@
+require 'versatile_rjs/proxy/framework_dependent'
+require 'versatile_rjs/proxy/selectable'
+
 module VersatileRJS
   class Proxy
     class ElementProxy < Proxy
-      include FrameworkDepedent
+      include FrameworkDependent
       include Selectable
 
       attr_reader :id

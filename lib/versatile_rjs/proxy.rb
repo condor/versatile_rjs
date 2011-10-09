@@ -5,17 +5,19 @@ module VersatileRJS
     private :page, :statement, :container
 
     attr_accessor :index, :container
-    protected :index=, :container=
+    protected :index=
 
     autoload :ElementProxy, 'versatile_rjs/proxy/element_proxy'
     autoload :ElementSetProxy, 'versatile_rjs/proxy/element_set_proxy'
     autoload :SelectorProxy, 'versatile_rjs/proxy/selector_proxy'
     autoload :BlockProxy, 'versatile_rjs/proxy/block_proxy'
+    autoload :FrameworkDependent, 'versatile_rjs/proxy/framework_dependent'
+    autoload :Selectabl, 'versatile_rjs/proxy/selectable'
 
     def initialize(page, statement)
       @page = page
       @statement = statement
-      @page.append_proxy self
+      append_to(page)
     end
 
     def self.methods_to_implement(method_names = {})
@@ -27,7 +29,7 @@ module VersatileRJS
     end
 
     def call(method, *arguments)
-      self.statement << ".#{method}(#{arguments.map(&:to_json).join(', ')})"
+      statement << ".#{method}(#{arguments.map(&:to_json).join(', ')})"
     end
 
     def to_json
@@ -42,13 +44,11 @@ module VersatileRJS
     def append_to(container)
       self.index = container.next_index
       container.add_proxy(self)
-      self.container = WeakRef.new container
     end
 
     def replace_with(another)
       another.index = index
       container.replace_on(index, another)
-      another.container = WeakRef.new container
       another
     end
   end
