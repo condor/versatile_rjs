@@ -75,6 +75,8 @@ module VersatileRJS
 
     def to_script(with_new_line = false)
       statement = proxies.map(&:to_json).join(";#{"\n" if with_new_line}") + ';'
+      statement = "try{" + statement + "}catch(e){alert('" + view.__send__(:escape_javascript, statement) + "');throw e;}" if VersatileRJS.debug_rjs
+      statement
     end
 
     private
