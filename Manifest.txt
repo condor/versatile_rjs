@@ -19,3 +19,7 @@ lib/versatile_rjs/proxy/framework_dependent.rb
 lib/versatile_rjs/proxy/selectable.rb
 lib/versatile_rjs/proxy/selector_proxy.rb
 lib/versatile_rjs/proxy/jquery/element_proxy.rb
+lib/versatile_rjs/proxy/jquery/element_set.rb
+lib/versatile_rjs/proxy/jquery/element_set_proxy.rb
+lib/versatile_rjs/proxy/jquery/selectable.rb
+lib/versatile_rjs/proxy/jquery/selector_proxy.rb

@@ -4,6 +4,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 require 'versatile_rjs/page'
 require 'versatile_rjs/proxy'
 require 'versatile_rjs/template_handler'
+require 'versatile_rjs/railtie'
 
 module VersatileRJS
   VERSION = '0.0.1'

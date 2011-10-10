@@ -4,6 +4,7 @@ module VersatileRJS
   class Proxy
     class ElementSetProxy < Proxy
       include Selectable
+      include FrameworkDependent
 
       def initialize(page, statement)
         super

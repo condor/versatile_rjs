@@ -73,8 +73,8 @@ module VersatileRJS
       return render_on_view(*args_for_rendering)
     end
 
-    def to_script
-      statement = proxies.map(&:to_json).join(';') + ';'
+    def to_script(with_new_line = false)
+      statement = proxies.map(&:to_json).join(";#{"\n" if with_new_line}") + ';'
     end
 
     private

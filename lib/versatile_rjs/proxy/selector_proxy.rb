@@ -2,7 +2,7 @@ module VersatileRJS
   class Proxy
     class SelectorProxy < ElementSetProxy
       def initialize(page, selector)
-        super(page, selector_as_statement)
+        super(page, statement_by_selector(selector))
       end
     end
   end
