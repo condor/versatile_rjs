@@ -5,6 +5,16 @@ module VersatileRJS
 
     include Container
 
+    def method_missing(name, *args)
+      if name.to_s =~ /=$/
+        assign(name, args.first)
+      else
+        script = args.size == 0 ? name.to_s :
+          "#{name}(#{args.map(&:to_json).join(', ')})"
+        self << script
+      end
+    end
+
     class ProxyStack < Array
       def peek
         self[-1]
