@@ -11,6 +11,7 @@ lib/versatile_rjs/container.rb
 lib/versatile_rjs/page.rb
 lib/versatile_rjs/proxy.rb
 lib/versatile_rjs/railtie.rb
+lib/versatile_rjs/to_function_ext.rb
 lib/versatile_rjs/template_handler.rb
 lib/versatile_rjs/proxy/element_proxy.rb
 lib/versatile_rjs/proxy/element_set_proxy.rb

@@ -19,5 +19,11 @@ module VersatileRJS
         ActionView::Template.register_template_handler :rjs, VersatileRJS::TemplateHandler
       end
     end
+
+    initializer "versatile_rjs.extend_link_and_button_to_function" do |app|
+      ActiveSupport.on_load(:action_view) do
+        require 'versatile_rjs/to_function_ext'
+      end
+    end
   end
 end

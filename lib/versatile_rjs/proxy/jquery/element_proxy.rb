@@ -40,11 +40,23 @@ module VersatileRJS
           call :html
         end
 
-        def remove
+        def _remove
           call :remove
         end
 
-        def select(selector)
+        def _show
+          call :show
+        end
+
+        def _hide
+          call :hide
+        end
+
+        def _toggle
+          call :toggle
+        end
+
+        def _select(selector)
           call :find, selector
         end
       end

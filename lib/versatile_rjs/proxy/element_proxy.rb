@@ -16,7 +16,10 @@ module VersatileRJS
         :_remove => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to remove the element that specified by me",
         :_value= => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to set the value of the element specified by me",
         :_value => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to set the value of the element that specified by me",
-        :_inner_html => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to get the content of the element that specified by me"
+        :_inner_html => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to get the content of the element that specified by me",
+        :_show => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to show the element that specified by me",
+        :_hide => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to hide the element that specified by me",
+        :_toggle => "call the adequate JS method by using method :call, depending on the JS framework you decide to use, to change the visibility of the element that specified by me"
 
       def self.inherited(derived)
         derived.class_eval do
@@ -62,9 +65,23 @@ module VersatileRJS
         as_expression
       end
 
-      def inner_html=(html)
-        replace(html)
+      def show
+        _show
         as_expression
+      end
+
+      def hide
+        _hide
+        as_expression
+      end
+
+      def toggle
+        _toggle
+        as_expression
+      end
+
+      def inner_html=(html)
+        replace_html(html)
       end
 
     end
