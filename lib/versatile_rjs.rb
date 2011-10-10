@@ -9,7 +9,6 @@ module VersatileRJS
   VERSION = '0.0.1'
 
   class <<self
-    attr_accessor :javascript_framework
+    attr_accessor :javascript_framework, :debug_rjs
   end
-  self.javascript_framework = :jquery
 end
