@@ -9,9 +9,7 @@ module VersatileRJS
       if name.to_s =~ /=$/
         assign(name, args.first)
       else
-        script = args.size == 0 ? name.to_s :
-          "#{name}(#{args.map(&:to_json).join(', ')})"
-        self << script
+        view.__send__ name, *args
       end
     end
 
@@ -74,6 +72,11 @@ module VersatileRJS
 
     def remove(id, *args)
       self[id].remove(*args)
+    end
+
+    def evaluate(&block)
+      view.instance_exec(self, &block)
+      self
     end
 
     def execute_rendering(*args_for_rendering)

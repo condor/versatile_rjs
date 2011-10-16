@@ -5,7 +5,7 @@ module VersatileRJS
     end
 
     def call(template)
-      "lambda{|page|#{template.source};page}.call(VersatileRJS::Page.new(self)).to_script(true)"
+      "VersatileRJS::Page.new(self).evaluate{|page|#{template.source}}.to_script(true)"
     end
   end
 end
