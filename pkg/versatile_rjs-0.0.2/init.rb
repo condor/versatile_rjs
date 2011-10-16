@@ -1,0 +1,1 @@
+require 'versatile_rjs'
