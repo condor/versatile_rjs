@@ -1,6 +1,6 @@
 = versatile_rjs
 
-https://github.com/condor/versatile_rjs
+This gem enables RJS using Rails 3.1 or higher and jQuery.
 
 == Contributing to versatile_rjs
  
