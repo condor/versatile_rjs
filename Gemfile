@@ -5,6 +5,9 @@ source "http://rubygems.org"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
+
+gem 'rails', '>= 3.1.0'
+
 group :development do
   gem "rspec", "~> 2.3.0"
   gem "cucumber", ">= 0"
