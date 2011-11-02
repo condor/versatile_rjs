@@ -5,13 +5,6 @@ module VersatileRJS
     attr_accessor :index, :container
     private :page, :statement, :container, :index
 
-    autoload :ElementProxy, 'versatile_rjs/proxy/element_proxy'
-    autoload :ElementSetProxy, 'versatile_rjs/proxy/element_set_proxy'
-    autoload :SelectorProxy, 'versatile_rjs/proxy/selector_proxy'
-    autoload :BlockProxy, 'versatile_rjs/proxy/block_proxy'
-    autoload :FrameworkDependent, 'versatile_rjs/proxy/framework_dependent'
-    autoload :Selectabl, 'versatile_rjs/proxy/selectable'
-
     def initialize(page, statement)
       @page = page
       @statement = statement
@@ -46,3 +39,11 @@ module VersatileRJS
     end
   end
 end
+
+require 'versatile_rjs/proxy/element_proxy'
+require 'versatile_rjs/proxy/element_by_id_proxy'
+require 'versatile_rjs/proxy/element_set_proxy'
+require 'versatile_rjs/proxy/selector_proxy'
+require 'versatile_rjs/proxy/block_proxy'
+require 'versatile_rjs/proxy/framework_dependent'
+require 'versatile_rjs/proxy/selectable'
