@@ -1,13 +1,8 @@
-require 'versatile_rjs/proxy/framework_dependent'
-require 'versatile_rjs/proxy/selectable'
-require 'versatile_rjs/proxy/default_responder'
+require 'versatile_rjs/proxy/element_proxy'
 
 module VersatileRJS
   class Proxy
     class ElementByIdProxy < ElementProxy
-      include FrameworkDependent
-      include Selectable
-      include DefaultResponder
 
       attr_reader :id
 
