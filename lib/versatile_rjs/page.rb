@@ -47,7 +47,7 @@ module VersatileRJS
     end
 
     def [](id)
-      append_proxy VersatileRJS::Proxy::ElementProxy.new_instance(self, id)
+      append_proxy VersatileRJS::Proxy::ElementByIdProxy.new_instance(self, id)
     end
 
     def select(selector)
