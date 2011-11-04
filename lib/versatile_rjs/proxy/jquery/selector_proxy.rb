@@ -1,14 +1,11 @@
-require 'versatile_rjs/proxy/jquery/selectable'
-require 'versatile_rjs/proxy/jquery/element_set'
+require 'versatile_rjs/proxy/jquery/element_set_proxy'
 
 module VersatileRJS
   class Proxy
     module Jquery
-      class SelectorProxy < ::VersatileRJS::Proxy::SelectorProxy
-        include Selectable
-        include ElementSet
+      class SelectorProxy < ElementSetProxy
         private
-        def statement_by_selector(selector)
+        def statement_for_selector(selector)
           "$('#{selector}')"
         end
       end

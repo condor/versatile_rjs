@@ -1,8 +1,16 @@
 module VersatileRJS
   class Proxy
-    class SelectorProxy < ElementSetProxy
+    module SelectorProxy
+      include FrameworkDependent
+
+      def self.included(base)
+        base.class_eval do
+          attr_accessor :selector
+        end
+      end
+
       def initialize(page, selector)
-        super(page, statement_by_selector(selector))
+        super(page, statement_for_selector(selector))
       end
     end
   end

@@ -13,7 +13,7 @@ module VersatileRJS
       end
     end
 
-    class ProxyStack < Array
+    class ContainerStack < Array
       def peek
         self[-1]
       end
@@ -24,12 +24,11 @@ module VersatileRJS
 
     def initialize(view)
       @view = view
-      @stack = ProxyStack.new
+      @stack = ContainerStack.new
       @stack.push self
     end
 
     def push_container(container)
-      add_proxy container
       stack.push container
     end
 
@@ -37,21 +36,21 @@ module VersatileRJS
       stack.pop
     end
 
-    def append_proxy(proxy)
-      stack.peek.add_proxy proxy
-      proxy
+    def append_statement(statement)
+      stack.peek.add_statement statement
+      statement
     end
 
-    def <<(expression)
-      append_proxy VersatileRJS::Proxy.new(self, expression)
+    def <<(statement)
+      append_statement(ActiveSupport::JSON::Variable.new(statement))
     end
 
     def [](id)
-      append_proxy VersatileRJS::Proxy::ElementByIdProxy.new_instance(self, id)
+      VersatileRJS::Proxy::ElementByIdProxy.new_instance(self, id)
     end
 
     def select(selector)
-      append_proxy VersatileRJS::Proxy::SelectorProxy.new_instance(self, selector)
+      VersatileRJS::Proxy::SelectorProxy.new_instance(self, selector)
     end
 
     def assign(variable, value)
@@ -86,10 +85,20 @@ module VersatileRJS
       return render_on_view(*args_for_rendering)
     end
 
-    def to_script(with_new_line = false)
-      statement = proxies.map(&:to_json).join(";#{"\n" if with_new_line}") + ';'
-      statement = "try{" + statement + "}catch(e){alert('" + view.__send__(:escape_javascript, statement) + "');throw e;}" if VersatileRJS.debug_rjs
-      statement
+    def statement_prefix(statement)
+      "try{" if VersatileRJS.debug_rjs?
+    end
+
+    def statement_suffix(statement)
+      if VersatileRJS.debug_rjs
+        <<-EOS
+        }catch(e){
+          alert('RJS Error: ' + e);
+          alert('#{view.__send__(:escape_javascript, statement)}');
+          throw e;
+        }
+        EOS
+      end
     end
 
     private

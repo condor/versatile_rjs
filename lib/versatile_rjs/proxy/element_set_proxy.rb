@@ -6,10 +6,16 @@ module VersatileRJS
       include Selectable
       include FrameworkDependent
 
-      method_to_implement :each => "call the adequate JS statement equivalent to the block given to apply the process to the items contained."
-
       def initialize(page, statement)
         super
+      end
+
+      def each(&block)
+        EachProxy.new_instance(page).each(&block)
+      end
+
+      def invoke(method_name)
+        raise NotImplementedError, "invoke must be implemented in each class."
       end
     end
   end

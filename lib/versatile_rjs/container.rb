@@ -2,39 +2,22 @@ require 'weakref'
 
 module VersatileRJS
   module Container
+    DELIMITER_WITH_NEW_LINE = ';\n'
+    DELIMITER_WITHOUT_NEW_LINE = ';'
 
-    def add_proxy(proxy)
-      proxy.index = next_index
-      proxies << proxy
-      relate_proxy(proxy)
+    def statements
+      @statements ||= []
     end
 
-    def replace_on(index, proxy)
-      proxies[index] = proxy
-      proxy.index = index
-      relate_proxy(proxy)
+    def add_statement(statement)
+      statements << statement
     end
 
-    def proxies
-      @proxies ||= []
-    end
-
-    def size
-      proxies.size
-    end
-
-    def count
-      proxies.count
-    end
-
-    private
-    def next_index
-      proxies.size
-    end
-
-    def relate_proxy(proxy)
-      proxy.container = WeakRef.new(self)
-      proxy
+    def to_script(with_new_line = false)
+      delimiter = with_new_line ? DELIMITER_WITH_NEW_LINE : DELIMITER_WITHOUT_NEW_LINE
+      statement = statements.map(&:to_json).join(delimiter)
+      statement += ';'
+      statement_prefix(statement).to_s + statement + statement_suffix(statement).to_s
     end
   end
 end

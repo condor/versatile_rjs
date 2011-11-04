@@ -5,8 +5,10 @@ module VersatileRJS
   class Proxy
     module Jquery
       class ElementSetProxy < ::VersatileRJS::Proxy::ElementSetProxy
-        include Selectable
-        include ElementSet
+
+        def invoke(method_name)
+          page.append_statement call(method_name)
+        end
       end
     end
   end

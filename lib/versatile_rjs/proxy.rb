@@ -10,16 +10,15 @@ module VersatileRJS
       @statement = statement
     end
 
-    def self.methods_to_implement(method_names = {})
-      method_names.keys.each do |m|
-        define_method(m) do |*args|
-          raise "This method must be implemented to #{method_names[m]}"
-        end
-      end
-    end
-
     def call(method, *arguments)
-      statement << ".#{method}(#{arguments.map(&:to_json).join(', ')})"
+      method = method.to_s.camelcase
+      statement =
+        if method =~ /(.*)=$/
+          "#{self.statement}.#{$1} = #{arguments.first.to_json}"
+        else
+          "#{self.statement}.#{method}(#{arguments.map(&:to_json).join(', ')})"
+        end
+      ActiveSupport::JSON::Variable.new statement
     end
 
     def to_json
@@ -27,16 +26,6 @@ module VersatileRJS
     end
 
     alias_method :to_s, :to_json
-
-    def as_expression
-      replace_with ::VersatileRJS::Proxy.new(page, statement)
-    end
-
-    private
-    def replace_with(another)
-      container.replace_on(index, another)
-      another
-    end
   end
 end
 
