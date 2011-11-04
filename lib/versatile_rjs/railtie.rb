@@ -10,7 +10,6 @@ module VersatileRJS
   class Railtie < Rails::Railtie
 
     initializer "versatile_rjs.enable_debug_rjs" do |app|
-      VersatileRJS.javascript_framework = app.config.versatile_rjs.javascript_framework || :jquery
       VersatileRJS.debug_rjs = app.config.versatile_rjs.debug_rjs
     end
 
@@ -24,6 +23,11 @@ module VersatileRJS
       ActiveSupport.on_load(:action_view) do
         require 'versatile_rjs/to_function_ext'
       end
+    end
+
+    initializer "versatile_rjs.setup_framework" do |app|
+      VersatileRJS.javascript_framework = app.config.versatile_rjs.javascript_framework || VersatileRJS.default_javascript_framework
+      VersatileRJS.require_framework
     end
   end
 end
