@@ -19,6 +19,7 @@ module VersatileRJS
   end
 
   def self.implementation_class_of(mod)
+
     class_name_tree = mod.name.split('::')
 
     class_dirnames = class_name_tree[0...-1]
@@ -27,5 +28,9 @@ module VersatileRJS
       [class_dirnames, framework_module, class_basename].flatten.join('::')
 
     implementation_class_name.constantize
+  end
+
+  def self.require_framework
+    require "versatile_rjs/proxy/#{javascript_framework}"
   end
 end
