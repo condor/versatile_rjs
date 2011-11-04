@@ -23,7 +23,8 @@ module VersatileRJS
 
     class_dirnames = class_name_tree[0...-1]
     class_basename = class_name_tree[-1]
-    implementation_class_name = [class_dirnames, framework_module, class_basename].flatten.join('::')
+    implementation_class_name =
+      [class_dirnames, framework_module, class_basename].flatten.join('::')
 
     implementation_class_name.constantize
   end
