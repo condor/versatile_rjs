@@ -10,9 +10,11 @@ module VersatileRJS
   VERSION = '0.1.0'
 
   class <<self
-    attr_accessor :javascript_framework, :debug_rjs
+    attr_accessor :javascript_framework, :debug_rjs, :default_javascript_framework
     alias_method :debug_rjs?, :debug_rjs
   end
+
+  self.default_javascript_framework = :jquery
 
   def self.framework_module
     javascript_framework.to_s.camelcase
