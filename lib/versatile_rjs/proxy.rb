@@ -15,14 +15,14 @@ module VersatileRJS
     end
 
     def call(method, *arguments)
-      method = method.to_s.camelcase
-      statement =
+      method = method.to_s.camelcase(:lower)
+      script =
         if method =~ /(.*)=$/
           "#{statement}.#{$1} = #{arguments.first.to_json}"
         else
           "#{statement}.#{method}(#{arguments.map(&:to_json).join(', ')})"
         end
-      ActiveSupport::JSON::Variable.new statement
+      ActiveSupport::JSON::Variable.new script
     end
 
     def to_json
