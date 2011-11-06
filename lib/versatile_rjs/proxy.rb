@@ -14,9 +14,9 @@ module VersatileRJS
       method = method.to_s.camelcase
       statement =
         if method =~ /(.*)=$/
-          "#{self.statement}.#{$1} = #{arguments.first.to_json}"
+          "#{statement}.#{$1} = #{arguments.first.to_json}"
         else
-          "#{self.statement}.#{method}(#{arguments.map(&:to_json).join(', ')})"
+          "#{statement}.#{method}(#{arguments.map(&:to_json).join(', ')})"
         end
       ActiveSupport::JSON::Variable.new statement
     end
