@@ -5,6 +5,10 @@ module VersatileRJS
     attr_accessor :index, :container
     private :page, :statement, :container, :index
 
+    def method_missing(method, *args)
+      call(method, *args)
+    end
+
     def initialize(page, statement)
       @page = page
       @statement = statement
