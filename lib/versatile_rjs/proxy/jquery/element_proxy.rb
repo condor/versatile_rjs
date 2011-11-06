@@ -19,7 +19,7 @@ module VersatileRJS
           when :insert_html
             METHODS[method][args.first]
           else
-            METHODS[method]
+            METHODS[method] || method
           end
         end
 
