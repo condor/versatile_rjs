@@ -1,7 +1,0 @@
-
-For more information on versatile_rjs, see http://versatile_rjs.rubyforge.org
-
-NOTE: Change this information in PostInstall.txt 
-You can also delete it if you don't want it.
-
-
