@@ -15,7 +15,7 @@ module ActionView::Helpers::JavaScriptHelper
   end
 
   def _versatile_rjs_function_block_extraction(block)
-    VersatileRJS::Page.new(self).evaluate(&block).to_script
+    VersatileRJS::Page.new(self).evaluate(&block).to_script.gsub(/[\r\n]+/, '')
   end
 
   alias_method_chain :button_to_function, :block
