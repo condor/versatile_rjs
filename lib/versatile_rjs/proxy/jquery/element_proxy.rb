@@ -13,23 +13,23 @@ module VersatileRJS
           :value= => :val,
           :select => :find
         }.freeze
-      end
 
-      def self.js_methods(method, *args)
-        case method
-        when :insert_html
-          METHODS[method][args.first]
-        else
-          METHODS[method]
+        def self.js_methods(method, *args)
+          case method
+          when :insert_html
+            METHODS[method][args.first]
+          else
+            METHODS[method]
+          end
         end
-      end
 
-      def self.args(method, *args)
-        case method
-        when :insert_html
-          args.second
-        else
-          args
+        def self.args(method, *args)
+          case method
+          when :insert_html
+            args.second
+          else
+            args
+          end
         end
       end
     end
