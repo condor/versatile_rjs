@@ -14,7 +14,7 @@ module VersatileRJS
           :select => :find
         }.freeze
 
-        def self.js_methods(method, *args)
+        def self.js_method(method, *args)
           case method
           when :insert_html
             METHODS[method][args.first]
