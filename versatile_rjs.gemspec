@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kevin IMAI TOYODA"]
+  s.authors = [%q{Kevin IMAI TOYODA}]
   s.date = %q{2011-11-06}
   s.description = %q{VersatileRJS: Enables RJS with Rails(3.1 or higher) and jQuery.
 
@@ -66,9 +66,9 @@ Gem::Specification.new do |s|
     "versatile_rjs.gemspec"
   ]
   s.homepage = %q{http://github.com/condor/versatile_rjs}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.1}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{VersatileRJS: Enables RJS with Rails(3.1 or higher) and jQuery.}
 
   if s.respond_to? :specification_version then
