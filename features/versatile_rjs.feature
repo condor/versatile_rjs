@@ -3,7 +3,7 @@ Feature: something something
   A user something something
   something something something
 
-  Scenario: something something
-    Given inspiration
-    When I create a sweet new gem
-    Then everyone should see how awesome I am
+#  Scenario: something something
+#    Given inspiration
+#    When I create a sweet new gem
+#    Then everyone should see how awesome I am

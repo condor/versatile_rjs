@@ -1,6 +1,7 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
+require 'versatile_rjs/utils'
 require 'versatile_rjs/page'
 require 'versatile_rjs/proxy'
 require 'versatile_rjs/template_handler'

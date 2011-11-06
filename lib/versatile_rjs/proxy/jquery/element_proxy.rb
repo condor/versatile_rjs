@@ -1,6 +1,6 @@
 module VersatileRJS
   class Proxy
-    class Jquery
+    module Jquery
       class ElementProxy < VersatileRJS::Proxy::ElementProxy
         METHODS = {
           :replace_html => :html,
