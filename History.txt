@@ -1,4 +1,4 @@
-=== 0.1.0 2011-11-06
+=== 0.1.1 2011-11-06
 
 * Renewed internal architecture. Method calls no longer disable repeated invocation of proxy objects. JavaScript statements are added only when the suitable method invoked.
 * Added each method to the ElementSetProxy (trial future: not production state)
