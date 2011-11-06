@@ -6,7 +6,7 @@ module VersatileRJS
     private :page, :statement, :container, :index
 
     def method_missing(method, *args)
-      call(method, *args)
+      page.append_statement call(method, *args)
     end
 
     def initialize(page, statement)
