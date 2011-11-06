@@ -62,7 +62,8 @@ Gem::Specification.new do |s|
     "script/destroy",
     "script/generate",
     "spec/spec_helper.rb",
-    "spec/versatile_rjs_spec.rb"
+    "spec/versatile_rjs_spec.rb",
+    "versatile_rjs.gemspec"
   ]
   s.homepage = %q{http://github.com/condor/versatile_rjs}
   s.licenses = ["MIT"]
