@@ -14,12 +14,21 @@ module VersatileRJS
           :select => :find
         }.freeze
 
-        class <<self
-          attr_reader :js_methods
+        def self.js_methods(method, *args)
+          case method
+          when :insert_html
+            METHODS[method][args.first]
+          else
+            METHODS[method]
+          end
         end
-        @js_methods =
-          VersatileRJS::Utils::PathThroughHash.new(METHODS)
 
+        def self.args(method, *args)
+          case method
+          when :insert_html
+            content
+          end
+        end
       end
     end
   end
