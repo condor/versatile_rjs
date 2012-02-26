@@ -2,8 +2,8 @@ require 'weakref'
 
 module VersatileRJS
   module Container
-    DELIMITER_WITH_NEW_LINE = ';\n'
     DELIMITER_WITHOUT_NEW_LINE = ';'
+    DELIMITER_WITH_NEW_LINE = DELIMITER_WITHOUT_NEW_LINE + "\n"
 
     def statements
       @statements ||= []
