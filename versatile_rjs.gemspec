@@ -4,17 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{versatile_rjs}
-  s.version = "0.1.2"
+  s.name = "versatile_rjs"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Kevin IMAI TOYODA}]
-  s.date = %q{2011-11-06}
-  s.description = %q{VersatileRJS: Enables RJS with Rails(3.1 or higher) and jQuery.
-
-
-}
-  s.email = %q{condor1226@gmail.com}
+  s.authors = ["Kevin IMAI TOYODA"]
+  s.date = "2012-05-01"
+  s.description = "VersatileRJS: Enables RJS with Rails(3.1 or higher) and jQuery.\n\n\n"
+  s.email = "condor1226@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -65,11 +62,11 @@ Gem::Specification.new do |s|
     "spec/versatile_rjs_spec.rb",
     "versatile_rjs.gemspec"
   ]
-  s.homepage = %q{http://github.com/condor/versatile_rjs}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{VersatileRJS: Enables RJS with Rails(3.1 or higher) and jQuery.}
+  s.homepage = "http://github.com/condor/versatile_rjs"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.15"
+  s.summary = "VersatileRJS: Enables RJS with Rails(3.1 or higher) and jQuery."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -78,14 +75,14 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 3.1.0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
@@ -93,7 +90,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rails>, [">= 3.1.0"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
     s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
   end
