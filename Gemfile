@@ -17,4 +17,8 @@ group :development do
   platform :ruby_18 do
     gem "rcov", ">= 0"
   end
+
+  platform :jruby do
+    gem 'jruby-openssl'
+  end
 end
