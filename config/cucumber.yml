@@ -1,0 +1,1 @@
+default: features/examples -r features/support -r features/step_definitions
