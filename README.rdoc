@@ -1,6 +1,12 @@
 = versatile_rjs
 
-This gem enables RJS using Rails 3.1 or higher and jQuery.
+Writing dynamic HTML apps in only Ruby, without JavaScript.
+
+== How to use
+
+If the JavaScript framework your Rails app depends on is jQuery, the only thing you must do is to write the statements below in your Gemfile:
+
+ gem 'versatile_rjs'
 
 == Contributing to versatile_rjs
  
