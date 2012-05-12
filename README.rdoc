@@ -20,6 +20,6 @@ If the JavaScript framework your Rails app depends on is jQuery, the only thing 
 
 == Copyright
 
-Copyright (c) 2011 Kevin IMAI TOYODA See LICENSE.txt for
+Copyright (c) 2011-2012 Kevin IMAI TOYODA See LICENSE.txt for
 further details.
 
